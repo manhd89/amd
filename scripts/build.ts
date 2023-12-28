@@ -29,11 +29,11 @@ try {
   await exec([
     config.outfile,
     "--target",
-    `node${NODE_VERSION}-win-x64`,
+    `node${NODE_VERSION}-linux-x64`,
     "--compress",
     "GZip",
     "--output",
-    "bin/apkmd.exe",
+    "bin/apkmd",
   ]);
 
   console.log("\n==> Build success");
