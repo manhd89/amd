@@ -84,8 +84,8 @@ resolveConfigPath()
   .catch((error) => {
     ora().fail(error.message);
   })
-  .finally(async () => {
-    await waitForKeypressExit();
+  .finally(() => {
+    waitForKeypressExit();
   });
 
 process.on("SIGINT", () => {

@@ -25,10 +25,6 @@ export async function downloadAPK(url: string, name: string): Promise<void> {
 }
 
 export async function waitForKeypressExit(exitCode = 0) {
-  if (!process.stdin.isTTY) {
-    return;
-  }
-
   console.log("\nPress any key to exit ...");
   process.stdin.setRawMode(true);
   return new Promise<void>((resolve) =>
