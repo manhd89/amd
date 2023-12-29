@@ -22,7 +22,7 @@ async function resolveConfigPath() {
 async function processConfig(config: Config) {
   const { apps } = config;
 
-  let downloadCount = 0;
+  let downloadCount = 1;
   const spinner = ora({
     text: `Downloading ${apps.length} apps`,
   }).start();
@@ -65,8 +65,8 @@ async function processConfig(config: Config) {
           );
         })
         .finally(() => {
-          downloadCount++;
           spinner.text = `Downloading ${apps.length - downloadCount} apps`;
+          downloadCount++;
         });
     })
   );
@@ -84,7 +84,7 @@ resolveConfigPath()
   .catch((error) => {
     ora().fail(error.message);
   })
-  .finally(() => {
+  .finally(async () => {
     waitForKeypressExit();
   });
 
