@@ -14,8 +14,8 @@ const config = {
   format: "cjs",
   platform: "node",
   bundle: true,
-  minify: false,
-  sourcemap: false,
+  minify: true,
+  sourcemap: true,
   define: {
     "process.env.CLI_VERSION": `"${process.env.npm_package_version}"`,
   },
